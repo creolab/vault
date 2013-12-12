@@ -21,7 +21,7 @@ class VaultServiceProvider extends ServiceProvider {
 		// Register bindings
 		$this->app->singleton('creolab.vault', function($app)
 		{
-			return new Environment($app);
+			return new Vault($app);
 		});
 
 		// Shortcut so developers don't need to add an Alias in app/config/app.php
