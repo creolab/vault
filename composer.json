@@ -1,0 +1,25 @@
+{
+    "name": "creolab/vault",
+    "description": "Simple authentication and ACL package for Laravel (Krustr CMS)",
+    "keywords": ["security", "acl", "auth", "laravel"],
+    "authors": [
+        {
+            "name": "Boris Strahija",
+            "email": "bstrahija@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "~4",
+        "illuminate/auth": "~4"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Creolab\\Vault": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
