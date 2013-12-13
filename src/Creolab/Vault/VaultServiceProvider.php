@@ -28,6 +28,9 @@ class VaultServiceProvider extends ServiceProvider {
 		$alias  = $this->app['config']->get('vault::alias');
 		$loader = \Illuminate\Foundation\AliasLoader::getInstance();
 		$loader->alias($alias, '\Creolab\Vault\VaultFacade');
+
+		// Include various files
+		require __DIR__ . '/../../helpers.php';
 	}
 
 	/**
