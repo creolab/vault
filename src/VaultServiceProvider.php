@@ -16,7 +16,7 @@ class VaultServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('creolab/vault');
+		$this->package('creolab/vault', 'vault', __DIR__);
 
 		// Register bindings
 		$this->app->singleton('creolab.vault', function($app)
@@ -26,11 +26,15 @@ class VaultServiceProvider extends ServiceProvider {
 
 		// Shortcut so developers don't need to add an Alias in app/config/app.php
 		$alias  = $this->app['config']->get('vault::alias');
-		$loader = \Illuminate\Foundation\AliasLoader::getInstance();
-		$loader->alias($alias, '\Creolab\Vault\VaultFacade');
+
+		if ($alias)
+		{
+			$loader = \Illuminate\Foundation\AliasLoader::getInstance();
+			$loader->alias($alias, '\Creolab\Vault\VaultFacade');
+		}
 
 		// Include various files
-		require __DIR__ . '/../../helpers.php';
+		require __DIR__ . '/helpers.php';
 	}
 
 	/**
